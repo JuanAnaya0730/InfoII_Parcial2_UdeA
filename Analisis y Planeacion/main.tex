@@ -48,10 +48,10 @@ El parcial plantea un manejo de imágenes, las cuales deberán ser mostradas en 
 Para realizar el redimensionamiento de la imagen será necesario crear métodos que se encarguen de dicha función, a continuación se muestra un análisis que permitirá elaborar dichos métodos:
 
 \subsection{Submuestreo}
-Para el problema en que la imagen sea más grande que la matriz de leds se deberá realizar el proceso de sobremuestreo, para este se ha hecho el siguiente análisis.
+Para el problema en que la imagen sea más grande que la matriz de leds se deberá realizar el proceso de subremuestreo, para este se ha hecho el siguiente análisis.
 Las dimensiones de una imagen están dadas en forma de Ancho x Alto, figura( \ref{fig:ejemplo1}). Para hacer el proceso de submuestreo se tomará el ancho de la imagen y se dividirá por el número de leds que corresponden al ancho de la matriz, de igual forma se hará con el alto.
     \begin{figure}[h]
-    \includegraphics[width=8cm]{ejemplo320x256.png}
+    \includegraphics[width=10cm]{ejemplo320x256.png}
     \centering
     \caption{Ejemplo de una imagen 320x256}
     \label{fig:ejemplo1}
@@ -63,5 +63,9 @@ Luego de dividir de tener los resultados de las divisiones se procederá a recor
     \caption{Led relevante.}
     \label{fig:ledrelevante}
     \end{figure}
+
+\subsection{Sobremuestreo}
+Para el problema en que la imagen sea más pequeña que la matriz de leds se deberá realizar el proceso de sobremuestreo, para este se ha hecho el siguiente análisis.
+Primero se hará un proceso similar al sobremuestreo, pero al contrario del sobremuestreo, aquí no se dividirá por el ancho de la matriz de leds, sino que se tomaran intervalos fijos de dos leds, para después posicionar el color dicho led en la posición siguiente a el.
 
 \end{document}
