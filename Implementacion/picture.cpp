@@ -1,6 +1,7 @@
 #include "picture.h"
 
-Picture::Picture()
+Picture::Picture(QString fileName)
 {
-
+    name = fileName;
+    load(PATH+name+JPG);
 }
