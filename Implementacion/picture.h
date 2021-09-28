@@ -18,6 +18,8 @@ private:
 
 public:
     Picture(QString fileName);
+
+    void resize(int _width_, int _height_);
 };
 
 #endif // PICTURE_H
