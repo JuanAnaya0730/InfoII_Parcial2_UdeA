@@ -6,15 +6,18 @@
 #include <QColor>
 #include <QString>
 
+#define PATH "../Implementacion/images/"
+#define JPG ".jpg"
+
 using namespace std;
 
-class Picture
+class Picture: public QImage
 {
 private:
-    QImage image;
+    QString name;
 
 public:
-    Picture();
+    Picture(QString fileName);
 };
 
 #endif // PICTURE_H
