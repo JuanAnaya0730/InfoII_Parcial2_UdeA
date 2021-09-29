@@ -2,16 +2,19 @@
 
 Picture::Picture()
 {
-    name = "";
+    name = ""; // Se inicializa el nombre en vacio
 }
 
 Picture::Picture(QString fileName)
 {
-    this->load(fileName);
+    this->load(fileName); // Se intenta cargar la imagen de nombre fileName
 }
 
 void Picture::resize(int _width_, int _height_)
 {
+    /* _width_ es el ancho al que se desea escalar la imagen
+     * _height_ es el alto al que se desea escalar la imagen */
+
     QImage auxImage(_width_,_height_,QImage::Format_RGB32);
     auxImage.fill(Qt::white);
 
@@ -74,13 +77,13 @@ void Picture::arduino()
 
 void Picture::load(QString fileName)
 {
-    name = fileName;
-    QImage::load(PATH_IMG+name+JPG);
+    name = fileName; // Se le asigna a name el nombre de la imagen que se desea cargar
+    QImage::load(PATH_IMG+name+JPG); // Se intenta cargar la imagen de nombre fileName
 }
 
 bool Picture::isLoad()
 {
-    return !isNull();
+    return !isNull(); // Se retorna true si la imagen se cargo correctamente, de lo contrario se retorna false
 }
 
 
