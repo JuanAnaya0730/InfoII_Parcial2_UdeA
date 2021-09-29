@@ -1,0 +1,1 @@
+Inserte en esta carpeta las imagenes que desea procesar.
