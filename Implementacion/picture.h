@@ -2,12 +2,15 @@
 #define PICTURE_H
 
 #include <iostream>
+#include <fstream>
 #include <QImage>
 #include <QColor>
 #include <QString>
 
-#define PATH "../Implementacion/images/"
+#define PATH_IMG "../Implementacion/images/"
+#define PATH_TXT "../Implementacion/arduino/"
 #define JPG ".jpg"
+#define TXT ".txt"
 
 using namespace std;
 
@@ -20,6 +23,8 @@ public:
     Picture(QString fileName);
 
     void resize(int _width_, int _height_);
+    void arduino(void);
+
 };
 
 #endif // PICTURE_H
