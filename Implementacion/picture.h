@@ -20,10 +20,12 @@ private:
     QString name;
 
 public:
+    Picture();
     Picture(QString fileName);
 
     void resize(int _width_, int _height_);
     void arduino(void);
+    void load(QString fileName);
 
 };
 
