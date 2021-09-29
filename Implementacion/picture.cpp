@@ -29,10 +29,10 @@ void Picture::resize(int _width_, int _height_)
 void Picture::arduino()
 {
     int RGB[3][height()][width()];
-    ofstream archivo;
+    ofstream file;
     QColor pixel;
 
-    archivo.open((PATH_TXT + name + TXT).toStdString(), ios::trunc);
+    file.open((PATH_TXT + name + TXT).toStdString(), ios::trunc);
 
     for(int i=0; i<width(); ++i){
         for(int j=0; j<height(); ++j){
@@ -49,23 +49,23 @@ void Picture::arduino()
         }
     }
 
-    archivo << "int RGB[3]["+to_string(height())+"]["+to_string(width())+"]={";
-    for(int canal=0; canal<3; ++canal){
-        archivo << "{";
+    file << "int RGB[3]["+to_string(height())+"]["+to_string(width())+"]={";
+    for(int channel=0; channel<3; ++channel){
+        file << "{";
         for(int i=0; i<height(); ++i) {
-            archivo << "{";
+            file << "{";
             for(int j=0; j<width(); ++j){
-                archivo << RGB[canal][i][j];
-                if(j!=width()-1){ archivo << ",";}
+                file << RGB[channel][i][j];
+                if(j!=width()-1){ file << ",";}
             }
-            archivo << "}";
-            if(i!=height()-1){ archivo << ", ";}
+            file << "}";
+            if(i!=height()-1){ file << ", ";}
         }
-        archivo << "}";
-        if(canal!=2){ archivo << ",\n";}
+        file << "}";
+        if(channel!=2){ file << ",\n";}
     }
-    archivo << "};";
-    archivo.close();
+    file << "};";
+    file.close();
 }
 
 
