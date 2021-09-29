@@ -78,6 +78,11 @@ void Picture::load(QString fileName)
     QImage::load(PATH_IMG+name+JPG);
 }
 
+bool Picture::isLoad()
+{
+    return !isNull();
+}
+
 
 
 
