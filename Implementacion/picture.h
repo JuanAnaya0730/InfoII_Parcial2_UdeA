@@ -26,6 +26,7 @@ public:
     void resize(int _width_, int _height_);
     void arduino(void);
     void load(QString fileName);
+    bool isLoad(void);
 
 };
 
