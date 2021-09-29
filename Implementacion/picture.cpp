@@ -3,7 +3,7 @@
 Picture::Picture(QString fileName)
 {
     name = fileName;
-    load(PATH+name+JPG);
+    load(PATH_IMG+name+JPG);
 }
 
 void Picture::resize(int _width_, int _height_)
@@ -23,5 +23,40 @@ void Picture::resize(int _width_, int _height_)
     }
 
     QImage::operator=(auxImage);
-    save(PATH + name + to_string(_width_).c_str() + "x" + to_string(_height_).c_str()+ JPG);
+    save(PATH_IMG + name + to_string(_width_).c_str() + "x" + to_string(_height_).c_str()+ JPG);
 }
+
+void Picture::arduino()
+{
+    int RGB[3][height()][width()];
+    QColor pixel;
+    ofstream archivo;
+
+    archivo.open((PATH_TXT + name + TXT).toStdString(), ios::trunc);
+
+    for(int i=0; i<width(); ++i){
+        for(int j=0; j<height(); ++j){
+            pixel = pixelColor(i,j);
+            if(pixel == QColor(255,255,255)){
+                pixel = QColor(254,254,254);
+            }
+            else if(pixel == QColor(0,0,0)){
+                pixel = QColor(1,1,1);
+            }
+            RGB[0][j][i] = pixel.red();
+            RGB[1][j][i] = pixel.green();
+            RGB[2][j][i] = pixel.blue();
+        }
+    }
+    archivo.close();
+}
+
+
+
+
+
+
+
+
+
+
