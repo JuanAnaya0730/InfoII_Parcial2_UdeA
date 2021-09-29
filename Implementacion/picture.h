@@ -17,16 +17,16 @@ using namespace std;
 class Picture: public QImage
 {
 private:
-    QString name;
+    QString name; // Name almacena el nombre de la imagen que se desee procesar
 
 public:
-    Picture();
-    Picture(QString fileName);
+    Picture(); // Constructor
+    Picture(QString fileName); // Este contructor me carca una imagen de nombre fileName
 
-    void resize(int _width_, int _height_);
-    void arduino(void);
-    void load(QString fileName);
-    bool isLoad(void);
+    void resize(int _width_, int _height_); // Esta funcion es la encargada de realizar el sub y sobre muestreo
+    void arduino(void); // Esta funcion me guarda en un archivo .txt los datos que debo copiar y pegar en tinkercad
+    void load(QString fileName); // Esta funcion me carga una imagen de nombre fileName
+    bool isLoad(void); // Esta funcion me dice si la imagen se cargo correctamente
 
 };
 
