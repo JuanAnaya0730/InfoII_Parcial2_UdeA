@@ -29,8 +29,8 @@ void Picture::resize(int _width_, int _height_)
 void Picture::arduino()
 {
     int RGB[3][height()][width()];
-    QColor pixel;
     ofstream archivo;
+    QColor pixel;
 
     archivo.open((PATH_TXT + name + TXT).toStdString(), ios::trunc);
 
@@ -48,6 +48,23 @@ void Picture::arduino()
             RGB[2][j][i] = pixel.blue();
         }
     }
+
+    archivo << "int RGB[3]["+to_string(height())+"]["+to_string(width())+"]={";
+    for(int canal=0; canal<3; ++canal){
+        archivo << "{";
+        for(int i=0; i<height(); ++i) {
+            archivo << "{";
+            for(int j=0; j<width(); ++j){
+                archivo << RGB[canal][i][j];
+                if(j!=width()-1){ archivo << ",";}
+            }
+            archivo << "}";
+            if(i!=height()-1){ archivo << ", ";}
+        }
+        archivo << "}";
+        if(canal!=2){ archivo << ",\n";}
+    }
+    archivo << "};";
     archivo.close();
 }
 
