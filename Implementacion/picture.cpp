@@ -1,9 +1,13 @@
 #include "picture.h"
 
+Picture::Picture()
+{
+    name = "";
+}
+
 Picture::Picture(QString fileName)
 {
-    name = fileName;
-    load(PATH_IMG+name+JPG);
+    this->load(fileName);
 }
 
 void Picture::resize(int _width_, int _height_)
@@ -66,6 +70,12 @@ void Picture::arduino()
     }
     file << "};";
     file.close();
+}
+
+void Picture::load(QString fileName)
+{
+    name = fileName;
+    QImage::load(PATH_IMG+name+JPG);
 }
 
 
