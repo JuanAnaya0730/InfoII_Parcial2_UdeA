@@ -36,7 +36,7 @@ void Picture::arduino()
     ofstream file;
     QColor pixel;
 
-    file.open((PATH_TXT + name + TXT).toStdString(), ios::trunc);
+    file.open((PATH_TXT + name + to_string(width()).c_str() + "x" + to_string(height()).c_str() + TXT).toStdString(), ios::trunc);
 
     for(int i=0; i<width(); ++i){
         for(int j=0; j<height(); ++j){
